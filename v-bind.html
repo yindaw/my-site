@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <img :src="image" alt="">
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+         var vm = new Vue({
+            data:{
+                image: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F4cda6ec65d9e31ba16da87eb9aa27c40e70bff7a160a2-js6UaO_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1660961743&t=c1be52f6a8f1f3f8347efd8ea2372820",
+            },
+        });
+        vm.$mount("#app");
+    </script>
+</body>
+</html>
