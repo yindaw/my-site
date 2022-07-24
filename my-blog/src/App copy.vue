@@ -1,46 +1,31 @@
 <template>
   <div>
     <h1>App组件</h1>
-    <h2>{{ count }}</h2>
-    <p>姓：{{ firstName }}</p>
-    <p>名：{{ lastName }}</p>
-    <p>全名：{{ fullName }}</p>
-    <p>全名：{{ fullName }}</p>
-    <p>全名：{{ fullName }}</p>
-    <p>全名：{{ fullName }}</p>
-    <p>全名：{{ fullName }}</p>
-    <button @click="fullName = '姬成'">修改姓名为姬成</button>
-    <button @click="count++">count++</button>
+    <Pager />
+    <!-- 如果分数>=80，<h1>优</h1> -->
+    <!-- 如果分数>=60，<h2>良</h2> -->
+    <!-- 其他，<h3>差</h3> -->
+    <!-- <h1 v-if="score >= 70">优</h1>
+    <h2 v-else-if="score >= 60">良</h2>
+    <h3 v-else>差</h3> -->
+    <p v-show="visible">something</p>
+    <button @click="visible = !visible">奇幻显示</button>
   </div>
 </template>
 
 <script>
+import Pager from "./components/Pager.vue";
 export default {
+  components: {
+    Pager,
+  },
   data() {
     return {
-      firstName: "袁",
-      lastName: "进",
-      count: 0,
+      // score: 70,
+      visible: true,
     };
-  },
-  computed: {
-    fullName: {
-      get() {
-        console.log("fullName called");
-        return this.firstName + " " + this.lastName + Date.now();
-      },
-      set(val) {
-        console.log("正在设置全名", val);
-        this.firstName = val[0];
-        this.lastName = val.substr[1];
-      },
-    },
-  },
-  methods: {
-    getFullName() {
-      console.log("method called");
-      return this.firstName + " " + this.lastName;
-    },
   },
 };
 </script>
+<style scoped>
+</style>
