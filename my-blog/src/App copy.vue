@@ -9,7 +9,7 @@
     <h2 v-else-if="score >= 60">良</h2>
     <h3 v-else>差</h3> -->
     <p v-show="visible">something</p>
-    <button @click="visible = !visible">奇幻显示</button>
+    <button @click="visible = !visible">切换显示</button>
   </div>
 </template>
 
