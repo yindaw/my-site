@@ -1,13 +1,13 @@
 <template>
   <Layout>
-    <template v-slot:default>中间主区域</template>
-    <template v-slot:header>页头</template>
+    中间主区域
+    <template #header>页头</template>
     <template v-slot:footer>页脚</template>
   </Layout>
 </template>
 
 <script>
-import Layout from "./Layout.vue";
+import Layout from "./Layout";
 export default {
   components: {
     Layout,
@@ -15,5 +15,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,14 +1,14 @@
 <template>
-<Message>
-  <div>
-    <a href="">asdfasdf</a>
-    <p>asdfasda</p>
-  </div>
-</Message>
+  <Message>
+    <div>
+      <a href="">asdfasfd</a>
+      <p>asdfasdfa</p>
+    </div>
+  </Message>
 </template>
 
 <script>
-import Message from "./Message.vue";
+import Message from "./Message";
 export default {
   components: {
     Message,
@@ -16,5 +16,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

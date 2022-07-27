@@ -1,15 +1,15 @@
 <template>
   <div class="layout-container">
     <header style="background: #f40">
-      <!-- 我们希望把页头放这里,提供插槽,名为header -->
+      <!-- 我们希望把页头放这里，提供插槽，名为header -->
       <slot name="header"></slot>
     </header>
     <main style="background: lightblue">
-      <!-- 我们希望把主要内容放这里,提供插槽,名为default -->
+      <!-- 我们希望把主要内容放这里，提供插槽，名为default -->
       <slot></slot>
     </main>
     <footer style="background: yellow">
-      <!-- 我们希望把页脚放这里,提供插槽,名为footer -->
+      <!-- 我们希望把页脚放这里，提供插槽，名为footer -->
       <slot name="footer"></slot>
     </footer>
   </div>
@@ -19,5 +19,4 @@
 export default {};
 </script>
 
-<style>
-</style>
+<style></style>
