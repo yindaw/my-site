@@ -21,8 +21,10 @@ export default function (options = {}) {
     const typeClassName = styles[`message-${type}`];  // 类型样式名
     div.className = `${styles.message} ${typeClassName}`;
     // 容器的position是否改动过
-    if (getComputedStyle(container).position === "static") {
-        container.style.position = "relative";
+    if (options.container) {
+        if (getComputedStyle(container).position === "static") {
+            container.style.position = "relative";
+        }
     }
     // 将div加入到容器中
     container.appendChild(div);
