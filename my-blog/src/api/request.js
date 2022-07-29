@@ -11,6 +11,6 @@ ins.interceptors.response.use(function (resp) {
         });
         return null;
     }
-    return resp;
+    return resp.data.data;
 });
 export default ins;
