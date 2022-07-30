@@ -1,8 +1,12 @@
 <template>
-  <div class="home-container" ref="container">
-    <ul class="carousel-container" :style="{ marginTop }">
+  <div class="home-container" ref="container" @wheel="handleWheel">
+    <ul
+      class="carousel-container"
+      :style="{ marginTop }"
+      @transitionend="handleTransitionEnd"
+    >
       <li v-for="item in banners" :key="item.id">
-        <CarouselItem />
+        <CarouselItem :carousel="item" />
       </li>
     </ul>
     <div class="icon icon-up" v-show="index >= 1" @click="switchTo(index - 1)">
@@ -40,6 +44,7 @@ export default {
       banners: [],
       index: 0, // 当前显示的是第几张轮播图
       containerHeight: 0, // 整个容器的高度
+      switching: false, // 是否正在切换中
     };
   },
   async created() {
@@ -47,6 +52,10 @@ export default {
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
+    window.addEventListener("resize", this.handleResize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
   },
   computed: {
     marginTop() {
@@ -57,6 +66,24 @@ export default {
     // 切换轮播图
     switchTo(i) {
       this.index = i;
+    },
+    handleWheel(e) {
+      if (this.switching) {
+        return;
+      }
+      if (e.deltaY < -5 && this.index > 0) {
+        this.switching = true;
+        this.index--;
+      } else if (e.deltaY > 5 && this.index < this.banners.length - 1) {
+        this.switching = true;
+        this.index++;
+      }
+    },
+    handleTransitionEnd() {
+      this.switching = false;
+    },
+    handleResize() {
+      this.containerHeight = this.$refs.container.clientHeight;
     },
   },
 };
