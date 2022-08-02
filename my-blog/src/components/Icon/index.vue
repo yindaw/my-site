@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../../fonts/iconfont.css";
+@import "../../assets/fonts/iconfont.css";
 .iconfont {
   color: inherit;
   font-size: inherit;

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import loadingUrl from "@/assets/loading.svg";
+import loadingUrl from "@/assets/img/loading.svg";
 export default {
     data(){
         return {

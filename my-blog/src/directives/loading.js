@@ -1,4 +1,4 @@
-import loadingUrl from "@/assets/loading.svg";
+import loadingUrl from "@/assets/img/loading.svg";
 import styles from "./loading.module.less";
 // 得到el中loading效果的img元素
 function getLoadingImage(el) {
