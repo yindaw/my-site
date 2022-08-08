@@ -1,35 +1,35 @@
-// 入口文件
-import "./mock";
-import Vue from 'vue';
-import App from './App.vue';
-import "./styles/global.less";
-import router from "./router/index";
-import showMessage from './utils/showMessage';
-Vue.prototype.$showMessage = showMessage;
+// // 入口文件
+// import "./mock";
+// import Vue from 'vue';
+// import App from './App.vue';
+// import "./styles/global.less";
+// import router from "./router/index";
+// import showMessage from './utils/showMessage';
+// Vue.prototype.$showMessage = showMessage;
 
-// 注册全局指令
-import vLoading from "./directives/loading"
-Vue.directive("loading", vLoading);
+// // 注册全局指令
+// import vLoading from "./directives/loading"
+// Vue.directive("loading", vLoading);
 
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')
+// new Vue({
+//   router,
+//   render: h => h(App),
+// }).$mount('#app')
 
-// 随便测试一下接口
-// import * as blogApi from "./api/blog";
-// blogApi.getBlog("dasdas").then((r) => {
-//   console.log(r);
-// });
+// 测试事件总线
+import eventBus from "./eventBus";
 
-// blogApi.postComment({
-//   nickName: "昵称",
-//   content: "评论内容，纯文本",
-//   blogId: "123"
-// }).then((r) => {
-//   console.log(r);
-// });
+function handler1(data) {
+  console.log("handler1", data);
+}
 
-// blogApi.getComments("13212",).then((r) => {
-//   console.log(r);
-// })
+function handler2(data) {
+  console.log("handler2", data);
+}
+
+eventBus.$on("event1", handler1);
+eventBus.$on("event1", handler2);
+eventBus.$on("event2", handler1);
+window.eventBus = eventBus;
+window.handler1 = handler1;
+window.handler2 = handler2;
