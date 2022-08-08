@@ -17,7 +17,7 @@ new Vue({
 }).$mount('#app')
 
 // 随便测试一下接口
-import * as blogApi from "./api/blog";
+// import * as blogApi from "./api/blog";
 // blogApi.getBlog("dasdas").then((r) => {
 //   console.log(r);
 // });
@@ -30,6 +30,6 @@ import * as blogApi from "./api/blog";
 //   console.log(r);
 // });
 
-blogApi.getComment("13212",).then((r) => {
-  console.log(r);
-})
+// blogApi.getComments("13212",).then((r) => {
+//   console.log(r);
+// })

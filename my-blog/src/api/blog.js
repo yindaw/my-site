@@ -36,7 +36,7 @@ export async function postComment(commentInfo) {
 }
 
 
-export async function getComment(blogId, page = 1, limit = 10) {
+export async function getComments(blogId, page = 1, limit = 10) {
     return await request.get("/api/comment", {
         params: {
             blogId,
