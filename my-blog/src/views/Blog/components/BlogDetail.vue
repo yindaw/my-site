@@ -2,10 +2,19 @@
   <div class="blog-detail-container">
     <h1>{{ blog.title }}</h1>
     <div class="aside">
-      <span>日期：{{ formatDate(blog.createDate) }}</span>
-      <span>浏览：{{ blog.scanNumber }}</span>
-      <a href="#data-form-container">评论：{{ blog.commentNumber }}</a>
-      <a>{{ blog.category.name }}</a>
+      <span>日期: {{ formatDate(blog.createDate) }}</span>
+      <span>浏览: {{ blog.scanNumber }}</span>
+      <a href="#data-form-container">评论: {{ blog.commentNumber }}</a>
+      <RouterLink
+        :to="{
+          name: 'CategoryBlog',
+          params: {
+            categoryId: blog.category.id,
+          },
+        }"
+      >
+        {{ blog.category.name }}
+      </RouterLink>
     </div>
     <div v-html="blog.htmlContent" class="markdown-body"></div>
   </div>
@@ -38,8 +47,7 @@ export default {
     margin-right: 15px;
   }
 }
-
 .markdown-body {
-  margin: 2em, 0;
+  margin: 2em 0;
 }
 </style>
