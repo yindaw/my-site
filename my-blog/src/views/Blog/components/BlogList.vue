@@ -4,7 +4,7 @@
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
           <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main">
@@ -101,7 +101,7 @@ export default {
     async $route() {
       this.isLoading = true;
       // 滚动高度为0
-      this.$refs.container.scrollTop = 0;
+      this.$refs.mainContainer.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false;
     },
