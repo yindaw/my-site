@@ -120,6 +120,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background: #000;
   ul {
     list-style: none;
     margin: 0;
