@@ -61,10 +61,10 @@ export default {
     this.setSize();
     this.mouseX = this.center.x;
     this.mouseY = this.center.y;
-    window.addEventListener("resize", this.setSize());
+    window.addEventListener("resize", this.setSize);
   },
   destroyed() {
-    window.removeEventListener("resize", this.setSize());
+    window.removeEventListener("resize", this.setSize);
   },
   methods: {
     // 调用该方法，显示文字
