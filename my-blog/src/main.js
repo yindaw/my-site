@@ -20,11 +20,4 @@ new Vue({
   router,
   store,
   render: h => h(App),
-}).$mount('#app')
-
-// import { getSetting } from "./api/setting";
-
-// getSetting().then((resp) => {
-//   console.log(resp);
-// });
-
+}).$mount('#app')  
