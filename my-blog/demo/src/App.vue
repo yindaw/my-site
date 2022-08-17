@@ -1,51 +1,34 @@
 <template>
-  <div>
-    <!-- <Numbers
-      ref="num"
-      :num1="n1"
-      :num2="n2"
-      @update:num1="n1 = $event"
-      @update:num2="n2 = $event"
-    />
-    <Numbers :num1.sync="n1" :num2.sync="n2" /> -->
-
-    <h1>App{{ number.value }} <button @click="number.value++">+</button></h1>
-
-    <A />
+  <div id="app" a="1" b="2">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-// import Numbers from "./components/Numbers.vue";
-import A from "./components/A.vue";
-import store from "./store";
+import HelloWorld from "./components/HelloWorld.vue";
+
 export default {
-  provide: {
-    a: 1,
-    b: 2,
-  },
-
+  name: "App",
   components: {
-    A,
+    HelloWorld,
   },
-  data() {
-    return {
-      number: store.number,
-    };
+  mounted() {
+    console.log(this._vnode);
   },
-
-  // components: {
-  //   Numbers,
-  // },
-  // data() {
-  //   return {
-  //     n1: 0,
-  //     n2: 3,
-  //   };
-  // },
-  // mounted() {
-  //   console.log(this.$children);
-  //   console.log("ref", this.$refs.num);
+  // render(h) {
+  //   return h("div", [h("h1", "title1"), h("h2", "title2")]);
   // },
 };
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
