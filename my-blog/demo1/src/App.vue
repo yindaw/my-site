@@ -1,50 +1,32 @@
 <template>
-  <!-- 使用冻结对象 -->
   <div id="app">
-    <button @click="loadNormalDatas">load normal datas</button>
-    <button @click="loadFrozenDatas">load frozen datas</button>
-    <h1>normal datas count: {{ normalDatas.length }}</h1>
-    <h1>freeze datas count: {{ freezeDatas.length }}</h1>
+    <p>
+      <button @click="curIndex = (curIndex + 1) % comps.length">switch</button>
+    </p>
+    <keep-alive>
+      <component :is="comps[curIndex]"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
+import Comp1 from "./components/Comp1";
+import Comp2 from "./components/Comp2";
+import Comp3 from "./components/Comp3";
 export default {
   data() {
     return {
-      normalDatas: [],
-      freezeDatas: [],
+      comps: Object.freeze([Comp1, Comp2, Comp3]),
+      curIndex: 0,
     };
-  },
-  methods: {
-    loadNormalDatas() {
-      this.normalDatas = this.getDatas();
-      console.log("normalDatas", this.normalDatas);
-    },
-    loadFrozenDatas() {
-      this.freezeDatas = Object.freeze(this.getDatas());
-      console.log("freezeDatas", this.freezeDatas);
-    },
-    getDatas() {
-      const result = [];
-      for (var i = 0; i < 1000000; i++) {
-        result.push({
-          id: i,
-          name: `name${i}`,
-          address: {
-            city: `city${i}`,
-            province: `province${i}`,
-          },
-        });
-      }
-      return result;
-    },
   },
 };
 </script>
 
 <style>
 #app {
+  width: 500px;
+  margin: 0 auto;
   text-align: center;
 }
 </style>
