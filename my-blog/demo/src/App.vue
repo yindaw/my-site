@@ -1,47 +1,29 @@
 <template>
-  <div id="app">
-    <RecycleScroller
-      :items="items"
-      :itemSize="54"
-      class="scroller"
-      v-slot="{ item }"
-    >
-      <ListItem :item="item" />
-    </RecycleScroller>
+  <div>
+    <h1>Hello Vue</h1>
+    <h2 v-pre>{{ title }}</h2>
   </div>
 </template>
 
 <script>
-import ListItem from "./components/ListItem.vue";
-// import RecycleScroller from './components/RecycleScroller';
-import { RecycleScroller } from "vue-virtual-scroller";
-import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
-var items = [];
-for (var i = 0; i < 10000; i++) {
-  items.push({
-    id: i + 1,
-    count: i + 1,
-  });
-}
+var config = {
+  created() {
+    console.log("config created");
+  },
+};
 export default {
-  components: { ListItem, RecycleScroller },
+  mixins: [config],
+  created() {
+    console.log("app created");
+    console.log(this);
+  },
   data() {
     return {
-      items,
+      title: "daddsda",
     };
   },
 };
 </script>
 
 <style>
-#app {
-  width: 100%;
-  margin: 0 auto;
-}
-.scroller {
-  width: 500px;
-  margin: 0 auto;
-  height: 500px;
-}
 </style>
-
