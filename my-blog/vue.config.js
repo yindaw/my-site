@@ -7,5 +7,13 @@ module.exports = {
       },
     },
   },
-  configureWebpack: require("./webpack.config"),
+  publicPath: "/news",
+  // // runtimeCompiler: true,
+  // // transplieDependencies: []
+  // configureWebpack: {
+  //   // webpack配置
+  // },
+  // css: {
+  //   // requireModuleExtension: false,
+  // }
 };
