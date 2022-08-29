@@ -1,29 +1,28 @@
 <template>
-  <div>
-    <h1>Hello Vue</h1>
-    <h2 v-pre>{{ title }}</h2>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-var config = {
-  created() {
-    console.log("config created");
-  },
-};
+import HelloWorld from "./components/HelloWorld.vue";
+
 export default {
-  mixins: [config],
-  created() {
-    console.log("app created");
-    console.log(this);
-  },
-  data() {
-    return {
-      title: "daddsda",
-    };
+  name: "App",
+  components: {
+    HelloWorld,
   },
 };
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
